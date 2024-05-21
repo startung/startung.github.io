@@ -8,3 +8,5 @@ tags: [jekyll, github, portfolio]
 # Hello, World!
 
 Welcome to my personal portfolio site.
+
+Avatar from [Artguru](https://www.artguru.ai)
