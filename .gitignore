@@ -1,3 +1,6 @@
+# I'll never tell
+.secrets
+
 # Bundler cache
 .bundle
 vendor

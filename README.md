@@ -1,61 +1,14 @@
-# Chirpy Starter
+---
+title: Hello World
+date: 2024-05-21 09:45:00 +0200
+categories: [setup]
+tags: [jekyll, github, portfolio]
+---
 
-[![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
-[![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+# Hello, World!
 
-When installing the [**Chirpy**][chirpy] theme through [RubyGems.org][gem], Jekyll can only read files in the folders
-`_data`, `_layouts`, `_includes`, `_sass` and `assets`, as well as a small part of options of the `_config.yml` file
-from the theme's gem. If you have ever installed this theme gem, you can use the command
-`bundle info --path jekyll-theme-chirpy` to locate these files.
+Welcome to my personal portfolio site. This site exist for me to log some of the work I am undertaking to enhance my development and data science skills. Most of the posts on here can be found by exporing my github repo, but using this site allows me to tailor the UI to meet my needs.
 
-The Jekyll team claims that this is to leave the ball in the user’s court, but this also results in users not being
-able to enjoy the out-of-the-box experience when using feature-rich themes.
+The site is built using [Jekyll](https://jekyllrb.com), using the [Chripy](https://github.com/cotes2020/jekyll-theme-chirpy) theme, and hosted on [GitHub](https://pages.github.com). I chose this route as I wanted to put this together rapidly and launch it with a minimum viable product (MVP). The advantage of doing this is that I can gather feedback from friends colleages and potential future employers. I expect in some future project I will update this with my own code, but for now I thought it better to be upfront with the source of the code I used. I choose to host on GitHub as it is where I host all of my development projects, as well as other files that need backing up and syncing such as my dotfiles. For code that requires PHP or Node.js I will host it on an Oracle VPS, although the source-code will still be on GitHub.
 
-To fully use all the features of **Chirpy**, you need to copy the other critical files from the theme's gem to your
-Jekyll site. The following is a list of targets:
-
-```shell
-.
-├── _config.yml
-├── _plugins
-├── _tabs
-└── index.html
-```
-
-To save you time, and also in case you lose some files while copying, we extract those files/configurations of the
-latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so that you can start writing in minutes.
-
-## Prerequisites
-
-Follow the instructions in the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installation of
-the basic environment. [Git](https://git-scm.com/) also needs to be installed.
-
-## Installation
-
-Sign in to GitHub and [**use this template**][use-template] to generate a brand new repository and name it
-`USERNAME.github.io`, where `USERNAME` represents your GitHub username.
-
-Then clone it to your local machine and run:
-
-```console
-$ bundle
-```
-
-## Usage
-
-Please see the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy#documentation).
-
-## Contributing
-
-The contents of this repository are automatically updated when new releases are made to the [main repository][chirpy].  
-If you have problems using it, or would like to participate in improving it, please go to the main repository for feedback!
-
-## License
-
-This work is published under [MIT][mit] License.
-
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
-[use-template]: https://github.com/cotes2020/chirpy-starter/generate
-[CD]: https://en.wikipedia.org/wiki/Continuous_deployment
-[mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+Avatar from [Artguru](https://www.artguru.ai)
