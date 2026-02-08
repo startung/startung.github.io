@@ -2,7 +2,15 @@
 
 ---
 
-## Version 0.0 2026-02-08 13:42
+## Version 0.0 2026-02-08 14:42
+
+## [Manual] Git
+- Created git repository
+- Added .gitignore
+- Created README.md
+- Created initial commit
+- Configured GitHub Pages
+- Pointed domain to GitHub Pages
 
 ## Refactoring - Home/About
 - Replaced `index.html` with `about.html` content
@@ -23,7 +31,7 @@
 ## Documentation
 - Updated `README.md` to reflect the current project state, including all pages and features.
 
-## [Manual Update] Add initial content to `about.html`
+## [Manual] Add initial content to `about.html`
 - add introduction section
 - add research, ai safety, data science, information security, maker, retro computing sections
 
