@@ -24,3 +24,20 @@ Personal website project for startung.nl.
 
 ## Development
 - `log.md`: Keeps track of development progress and feature implementations.
+
+## Todo
+- [ ] Add theme switcher (v0.1)
+- [ ] Add more themes (v0.2)
+- [ ] Add more blog posts (v0.3)
+- [ ] Add more AI glossary entries (v0.4)
+- [ ] Convert to Jekyll (v1.0)
+
+## Blog Post Ideas
+- [ ] AI Safety
+
+## AI Glossary Ideas
+- [ ] AI Safety
+
+## Theme Ideas
+- [ ] Dracula 
+- [ ] Typewriter

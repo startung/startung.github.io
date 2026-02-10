@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5×6 MinitChess</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>5×6 MinitChess</h1>
+            <p class="subtitle">Capture the King or deliver stalemate to win</p>
+        </header>
+
+        <div class="game-layout">
+            <div class="side-panel left">
+                <div class="captured-pieces" id="captured-white">
+                    <h3>White Captured</h3>
+                    <div class="pieces-list"></div>
+                </div>
+            </div>
+
+            <div class="board-container">
+                <div class="board-coordinates files">
+                    <span>a</span><span>b</span><span>c</span><span>d</span><span>e</span>
+                </div>
+                <div class="board-wrapper">
+                    <div class="board-coordinates ranks">
+                        <span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span>
+                    </div>
+                    <div id="board" class="board"></div>
+                </div>
+            </div>
+
+            <div class="side-panel right">
+                <div class="captured-pieces" id="captured-black">
+                    <h3>Black Captured</h3>
+                    <div class="pieces-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="status-bar">
+                <span id="current-player">White's turn</span>
+                <span id="move-count">Move: 0</span>
+            </div>
+            <div class="buttons">
+                <button id="btn-new-game" class="btn">New Game</button>
+                <button id="btn-undo" class="btn" disabled>Undo</button>
+                <button id="btn-ai-toggle" class="btn">Play vs AI: OFF</button>
+                <button id="btn-rules" class="btn btn-secondary">Rules</button>
+            </div>
+        </div>
+
+        <div class="move-history">
+            <h3>Move History</h3>
+            <div id="move-list" class="move-list"></div>
+        </div>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div id="game-over-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="game-result">Game Over</h2>
+            <p id="game-result-detail"></p>
+            <button id="btn-play-again" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Pawn Promotion Modal -->
+    <div id="promotion-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Promote Pawn</h2>
+            <p>Choose a piece:</p>
+            <div id="promotion-options" class="promotion-options"></div>
+        </div>
+    </div>
+
+    <!-- Color Selection Modal -->
+    <div id="color-select-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Play vs AI</h2>
+            <p>Choose your color:</p>
+            <div class="color-options">
+                <button id="btn-play-white" class="btn btn-color">
+                    <span class="color-piece">♔</span>
+                    <span>Play as White</span>
+                </button>
+                <button id="btn-play-black" class="btn btn-color">
+                    <span class="color-piece">♚</span>
+                    <span>Play as Black</span>
+                </button>
+            </div>
+            <button id="btn-cancel-ai" class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Rules Modal -->
+    <div id="rules-modal" class="modal hidden">
+        <div class="modal-content rules-content">
+            <h2>MinitChess Rules</h2>
+            <div class="rules-section">
+                <h3>Board</h3>
+                <p>5×6 board (5 files a-e, 6 ranks 1-6)</p>
+                <h3>Starting Position</h3>
+                <div class="rules-position">
+                    <pre>  a b c d e
+6 k q b n r  (Black)
+5 p p p p p
+4 . . . . .
+3 . . . . .
+2 P P P P P
+1 R N B Q K  (White)</pre>
+                </div>
+                
+                <h3>Pieces</h3>
+                <ul>
+                    <li><strong>King (K/k)</strong>: 1 square any direction</li>
+                    <li><strong>Queen (Q/q)</strong>: Rook + Bishop combined</li>
+                    <li><strong>Rook (R/r)</strong>: Any distance orthogonal</li>
+                    <li><strong>Knight (N/n)</strong>: L-shape, can jump</li>
+                    <li><strong>Bishop (B/b)</strong>: Diagonal + 1 square orthogonal</li>
+                    <li><strong>Pawn (P/p)</strong>: Forward 1-2, capture diagonal</li>
+                </ul>
+                
+                <h3>Win Conditions</h3>
+                <ul>
+                    <li><strong>Capture the King</strong> → Win!</li>
+                    <li><strong>Stalemate opponent</strong> → Win! (not draw)</li>
+                </ul>
+                
+                <h3>Special Rules</h3>
+                <ul>
+                    <li>No check/checkmate - King can be captured</li>
+                    <li>Bishop can move 1 square orthogonal (MinitChess special)</li>
+                    <li>40-move automatic draw</li>
+                    <li>Pawn promotes to Rook, Knight, or Bishop</li>
+                    <li>No castling, no en passant</li>
+                </ul>
+            </div>
+            <button id="btn-close-rules" class="btn btn-primary">Close</button>
+        </div>
+    </div>
+
+    <script src="js/pieces.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/movement.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>
