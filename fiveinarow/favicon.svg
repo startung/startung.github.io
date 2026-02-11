@@ -1,0 +1,14 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background based on Dracula's current-line -->
+    <rect width="64" height="64" rx="12" fill="#44475a"/>
+
+    <!-- Player 1 Piece (Red) -->
+    <circle cx="28" cy="28" r="18" fill="#ff5555"/>
+
+    <!-- Player 2 Piece (Yellow), slightly offset -->
+    <circle cx="40" cy="40" r="18" fill="#f1fa8c"/>
+
+    <!-- Optional: a subtle border or highlight for contrast -->
+    <circle cx="28" cy="28" r="18" stroke="#282a36" stroke-width="2"/>
+    <circle cx="40" cy="40" r="18" stroke="#282a36" stroke-width="2"/>
+</svg>

@@ -1,0 +1,312 @@
+/* Dracula Color Scheme */
+:root {
+    --background: #282a36;
+    --current-line: #44475a;
+    --foreground: #f8f8f2;
+    --comment: #6272a4;
+    --cyan: #8be9fd;
+    --green: #50fa7b;
+    --orange: #ffb86c;
+    --pink: #ff79c6;
+    --purple: #bd93f9;
+    --red: #ff5555;
+    --yellow: #f1fa8c;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom right, var(--purple), var(--pink)); /* Modern fade */
+    color: var(--foreground);
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--current-line); /* Container background */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    max-width: 90%; /* Adjust as needed */
+    margin: 20px; /* Space from body edges */
+}
+
+h1 {
+    color: var(--pink);
+    margin-bottom: 20px;
+}
+
+#game-board {
+    display: grid;
+    border: 2px solid var(--foreground);
+    background-color: var(--current-line);
+    margin-bottom: 20px;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--comment);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.piece {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.player1 {
+    background-color: var(--red);
+}
+
+.player2 {
+    background-color: var(--yellow);
+}
+
+.piece.dropping {
+    animation: drop-piece 0.3s ease-out forwards;
+}
+
+@keyframes drop-piece {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#game-info {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+#current-player.player1-turn {
+    color: var(--red);
+    font-weight: bold;
+}
+
+#current-player.player2-turn {
+    color: var(--yellow);
+    font-weight: bold;
+}
+
+#game-status {
+    margin-top: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--red); /* Red for win/tie messages */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: var(--purple);
+    color: var(--foreground);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px; /* Add some margin for spacing */
+}
+
+button:hover {
+    background-color: var(--pink);
+}
+
+.cell.droppable-column {
+    background-color: rgba(189, 147, 249, 0.3); /* Purple with some transparency */
+}
+
+.piece.winning-piece {
+    box-shadow: 0 0 15px 5px var(--cyan); /* A glowing effect */
+    border: 2px solid var(--cyan);
+    outline: 3px solid var(--foreground); /* White border */
+    outline-offset: 2px; /* Space between border and piece */
+}
+
+/* Instructions Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--current-line);
+    margin: auto;
+    padding: 30px;
+    border: 1px solid var(--comment);
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    color: var(--foreground);
+    text-align: left;
+}
+
+.modal-content h2 {
+    color: var(--pink);
+    margin-top: 0;
+    border-bottom: 2px solid var(--purple);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.modal-content p, .modal-content li {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.modal-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.close-button {
+    color: var(--comment);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--red);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#close-instructions {
+    display: block;
+    margin: 20px auto 0 auto;
+    background-color: var(--green);
+    color: var(--background);
+    font-weight: bold;
+}
+
+#close-instructions:hover {
+    background-color: var(--cyan);
+}
+
+/* Win Modal Styles */
+#win-modal .modal-content {
+    text-align: center;
+    background-color: var(--background);
+    border: 2px solid var(--purple);
+}
+
+#win-modal h2 {
+    color: var(--green);
+    border-bottom: 2px solid var(--green);
+}
+
+#win-modal #win-message {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--yellow);
+    margin: 20px 0;
+    display: block; /* To center it properly */
+}
+
+#play-again-button {
+    background-color: var(--green);
+    color: var(--background);
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 1.1em;
+}
+
+#play-again-button:hover {
+    background-color: var(--cyan);
+}
+
+/* Game Options Styles */
+#game-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid var(--comment);
+    border-radius: 8px;
+    background-color: var(--current-line);
+}
+
+.option-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--foreground);
+    font-size: 1.1em;
+}
+
+.option-group label {
+    cursor: pointer;
+}
+
+.option-group input[type="radio"] {
+    appearance: none;
+    background-color: var(--background);
+    margin: 0;
+    font: inherit;
+    color: var(--purple);
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid var(--purple);
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+
+.option-group input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 120ms ease-in-out;
+    box-shadow: inset 1em 1em var(--purple);
+    background-color: CanvasText; /* For older browsers */
+}
+
+.option-group input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+.option-group input[type="radio"]:focus-visible {
+    outline: 0.15em solid var(--cyan);
+    outline-offset: 0.15em;
+}
+
+.option-group input[type="radio"]:hover {
+    border-color: var(--pink);
+}
