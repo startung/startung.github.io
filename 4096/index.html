@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>4096 LED Matrix</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+<svg width="640" height="640" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <pattern id="pattern_led_on" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+            <circle cx="5" cy="5" r="4" fill="red" stroke="black"/>
+        </pattern>
+        <pattern id="pattern_led_off" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+            <circle cx="5" cy="5" r="4" fill="gray" stroke="black"/>
+        </pattern>
+    </defs>
+
+    <rect id="led_off" width="640" height="640" x="0" y="0" fill="url(#pattern_led_off)" />
+    <rect id="led_full_rows" width="640" height="0" x="0" y="0" fill="url(#pattern_led_on)" />
+    <rect id="led_partial_row" width="0" height="10" x="0" y="0" fill="url(#pattern_led_on)" />
+</svg>
+<script>
+    var start_string = /d=\d{4}-\d{2}-\d{2}/.exec(window.location.search)[0].slice(2);
+    const start_date = new Date(start_string);
+    if (!isNaN(start_date.getTime())) {
+        const curr_date = new Date();
+        const diff_weeks = Math.floor((curr_date - start_date) / (1000 * 60 * 60 * 24 * 7));
+        led_full_rows.setAttribute('height', Math.floor(diff_weeks / 64) * 10);
+        led_partial_row.setAttribute('y', Math.floor(diff_weeks / 64) * 10);
+        led_partial_row.setAttribute('width', (diff_weeks - Math.floor(diff_weeks / 64) * 64) * 10);
+    }
+</script>
+</body>
+</html>
