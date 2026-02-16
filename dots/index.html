@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dots</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <header>
+      <h1>Dots</h1>
+    </header>
+
+    <main>
+      <canvas id="gameCanvas"></canvas>
+
+      <div id="status-bar">
+        <span id="turn-indicator">Player 1's turn</span>
+        <span id="scores">P1: 0 — P2: 0</span>
+      </div>
+    </main>
+
+    <footer>
+      <div id="mode-selector">
+        <button class="mode-btn active" data-mode="2p">2 Player</button>
+        <button class="mode-btn" data-mode="ai">vs AI</button>
+      </div>
+      <div id="grid-size-selector">
+        <span>Grid:</span>
+        <button class="size-btn" data-size="3">3×3</button>
+        <button class="size-btn" data-size="4">4×4</button>
+        <button class="size-btn active" data-size="5">5×5</button>
+        <button class="size-btn" data-size="6">6×6</button>
+        <button class="size-btn" data-size="7">7×7</button>
+        <button class="size-btn" data-size="8">8×8</button>
+        <button class="size-btn" data-size="9">9×9</button>
+      </div>
+      <button id="new-game">New Game</button>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
