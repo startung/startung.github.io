@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lasca - Dracula Edition</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>LASCA</h1>
+            <p class="subtitle">Dracula Edition</p>
+        </header>
+        
+        <div class="game-info">
+            <div class="player-info">
+                <span class="player-indicator player-1"></span>
+                <span class="player-name">Player 1</span>
+                <span class="piece-count" id="player1-count">11</span>
+            </div>
+            <div class="game-status" id="game-status">Player 1's Turn</div>
+            <div class="player-info">
+                <span class="piece-count" id="player2-count">11</span>
+                <span class="player-name">Player 2</span>
+                <span class="player-indicator player-2"></span>
+            </div>
+        </div>
+        
+        <div class="game-layout">
+            <div class="move-history player-1-history" id="player1-history">
+                <h3>Player 1 Moves</h3>
+                <div class="history-content" id="player1-moves"></div>
+            </div>
+            
+            <div class="board-container">
+                <div class="board" id="board"></div>
+            </div>
+            
+            <div class="move-history player-2-history" id="player2-history">
+                <h3>Player 2 Moves</h3>
+                <div class="history-content" id="player2-moves"></div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="btn" id="new-game-btn">New Game</button>
+            <button class="btn" id="rules-btn">Rules</button>
+        </div>
+        
+        <div class="ai-controls" id="ai-controls">
+            <div class="ai-option">
+                <label for="ai-difficulty">AI Difficulty:</label>
+                <select id="ai-difficulty" class="btn">
+                    <option value="none">No AI</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            <div class="ai-option">
+                <label for="first-player">Who plays first:</label>
+                <select id="first-player" class="btn">
+                    <option value="human">Human</option>
+                    <option value="ai">AI</option>
+                </select>
+            </div>
+            <button class="btn" id="ai-toggle-btn">Play vs AI</button>
+        </div>
+    </div>
+    
+    <div class="modal" id="rules-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-rules">&times;</span>
+            <h2>Lasca Rules</h2>
+            <div class="rules-content">
+                <h3>Objective</h3>
+                <p>Capture all of your opponent's pieces or block them completely.</p>
+                
+                <h3>Setup</h3>
+                <p>7×7 board with 11 pieces per player arranged in a 4-3-4 pattern on the first three rows, only on dark squares.</p>
+                
+                <h3>Movement</h3>
+                <ul>
+                    <li>Pieces move diagonally forward one square to an empty space</li>
+                    <li>Kings can move diagonally in any direction</li>
+                    <li>Captures are mandatory when possible</li>
+                </ul>
+                
+                <h3>Captures (Column Formation)</h3>
+                <ul>
+                    <li>Jump over adjacent opponent pieces to capture them</li>
+                    <li>Captured pieces are placed UNDER the capturing piece, forming a column</li>
+                    <li>Columns show their height with a number indicator</li>
+                    <li>Multiple captures in one turn are allowed and mandatory</li>
+                </ul>
+                
+                <h3>Column Rules</h3>
+                <ul>
+                    <li>A column is controlled by the player whose piece is on top</li>
+                    <li>Columns move with the capabilities of their top piece</li>
+                    <li>If a column is captured, only the top piece is removed and placed under the capturing column</li>
+                    <li>Any remaining pieces stay in their original position as a shorter column</li>
+                    <li>The capturing column gains height with the captured piece at the bottom</li>
+                </ul>
+=======
+                
+                <h3>King Promotion</h3>
+                <p>When a piece reaches the opponent's back row, it becomes a king and can move diagonally in any direction.</p>
+                
+                <h3>Winning</h3>
+                <p>Capture all opponent's pieces or block them so they cannot move.</p>
+                
+                <h3>Winning</h3>
+                <p>Capture all opponent's pieces or block them so they cannot move.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
